@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Expenses from "./components/Expenses";
 import React from "react";
@@ -26,19 +25,19 @@ function App() {
     },
   ];
 
-  return React.createElement(
-    "div",
-    { className: "App" },
-    React.createElement("h2", {}, "Let's start!!!"),
-    React.createElement(Expenses, { expenses: expenses })
-  );
-
-  // return (
-  //   <div className="App">
-  //     <h2>Let's Start</h2>
-  //     <Expenses expenses={expenses} />
-  //   </div>
+  // return React.createElement(
+  //   "div",
+  //   { className: "App" },
+  //   React.createElement("h2", {}, "Let's start!!!"),
+  //   React.createElement(Expenses, { expenses: expenses })
   // );
+
+  return (
+    <div className="App">
+      <h2>Let's Start</h2>
+      <Expenses expenses={expenses} />
+    </div>
+  );
 }
 
 export default App;
