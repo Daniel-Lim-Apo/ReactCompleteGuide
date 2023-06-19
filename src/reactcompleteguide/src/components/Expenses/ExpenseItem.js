@@ -11,6 +11,7 @@ const ExpenseItem = (props) => {
   //   const exepenseAmount = 294.67;
 
   const [title, setTitle] =   useState(props.title);
+  console.log('ExpenseItem evaluated by React')
 
   // let title = props.title;
 
