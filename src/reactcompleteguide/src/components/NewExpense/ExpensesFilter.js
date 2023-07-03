@@ -4,7 +4,11 @@ import './ExpensesFilter.css';
 
 const ExpensesFilter = (props) => {
 
+  const handleOnChange = (event) => {
+    console.log("send value " + event.target.value + " from Expenses filter ");
+    props.onSelectYear(event.target.value);
 
+  }
 
   return (
     <div className='expenses-filter'>

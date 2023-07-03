@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
@@ -7,11 +7,14 @@ import ExpensesFilter from "../NewExpense/ExpensesFilter";
 
 const Expenses = (props) => {
   const expenses = props.expenses;
-  const [filterYear, setFilterYear] = useState('')
+  const [filterYear, setFilterYear] = useState("");
+  useEffect(()=>{console.log("aqui: " + filterYear);}, [filterYear]);
 
   const getSelectedYear = selectedYear =>  {
-    setFilterYear(selectedYear)
-    console.log(filterYear)
+    console.log(selectedYear);
+    setFilterYear(selectedYear);
+    console.log("In Expenses.js");
+    console.log(filterYear);
   }
 
   return (
