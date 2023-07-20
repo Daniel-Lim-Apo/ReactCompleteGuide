@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
@@ -19,31 +19,34 @@ const ExpenseForm = (props) => {
   };
 
   const inputChangeHandler = (identifier, value) => {
-    if (identifier === 'title') {
+    if (identifier === "title") {
       setEnteredTitle(value);
-    } else if (identifier === 'date'){
+    } else if (identifier === "date") {
+      // console.log(value);
       setEnteredDate(value);
-    } else if (identifier === 'amount'){
+    } else if (identifier === "amount") {
       setEnteredAmount(value);
     }
-  }
+  };
 
   const submitHandler = (event) => {
     event.preventDefault();
 
+    // console.log("enteredDate: ");
+    // console.log(enteredDate);
+
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
-      date: new Date(enteredDate),
-    }
+      date: new Date(Date.parse(enteredDate)),
+    };
 
-    // console.log(expenseData)
+    // console.log(expenseData);
     props.onSaveExpenseData(expenseData);
 
-    setEnteredTitle('');
-    setEnteredAmount('');
-    setEnteredDate('');
-
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   return (
@@ -51,11 +54,13 @@ const ExpenseForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input 
-            type="text" 
+          <input
+            type="text"
             value={enteredTitle}
-            onChange={(event) => inputChangeHandler('title', event.target.value)} 
-            />
+            onChange={(event) =>
+              inputChangeHandler("title", event.target.value)
+            }
+          />
         </div>
       </div>
       <div className="new-expense__controls">
@@ -66,7 +71,9 @@ const ExpenseForm = (props) => {
             min="0.01"
             step="0.01"
             value={enteredAmount}
-            onChange={(event) => inputChangeHandler('amount', event.target.value)}
+            onChange={(event) =>
+              inputChangeHandler("amount", event.target.value)
+            }
           />
         </div>
       </div>
@@ -78,7 +85,7 @@ const ExpenseForm = (props) => {
             min="2019-01-01"
             max="2022-12-31"
             value={enteredDate}
-            onChange={(event) => inputChangeHandler('date', event.target.value)}
+            onChange={(event) => inputChangeHandler("date", event.target.value)}
           />
         </div>
       </div>
