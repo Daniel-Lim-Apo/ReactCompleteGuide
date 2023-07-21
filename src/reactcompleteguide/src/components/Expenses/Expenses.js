@@ -28,6 +28,10 @@ const Expenses = (props) => {
     // console.log(filteredYear);
   };
 
+  const filteredTitems = props.items.filter(
+    (user) => user.date.getFullYear().toString() === filteredYear
+  );
+
   return (
     <div>
       <Card className="expenses">
@@ -37,16 +41,14 @@ const Expenses = (props) => {
         />
         <p>Data for years {filterInfoText} is hidden.</p>
         <label>Year: {filteredYear}</label>
-        {props.items
-          .filter((user) => user.date.getFullYear() == filteredYear)
-          .map((expense) => (
-            <ExpenseItem
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-            />
-          ))}
+        {filteredTitems.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
       </Card>
     </div>
   );
