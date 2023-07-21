@@ -41,9 +41,9 @@ const Expenses = (props) => {
         />
         <p>Data for years {filterInfoText} is hidden.</p>
         <label>Year: {filteredYear}</label>
-        {filteredTitems.length === 0 ? (
-          <p>No expenses found.</p>
-        ) : (
+        {filteredTitems.length === 0 && <p>No expenses found.</p>}
+
+        {filteredTitems.length > 0 &&
           filteredTitems.map((expense) => (
             <ExpenseItem
               key={expense.id}
@@ -51,8 +51,7 @@ const Expenses = (props) => {
               amount={expense.amount}
               date={expense.date}
             />
-          ))
-        )}
+          ))}
       </Card>
     </div>
   );
