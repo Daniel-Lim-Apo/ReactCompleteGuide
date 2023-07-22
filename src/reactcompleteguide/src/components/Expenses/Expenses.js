@@ -5,6 +5,7 @@ import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFilter";
 import "./ExpensesFilter.css";
+import ExpensesList from "./ExpensesList";
 
 const Expenses = (props) => {
   const expenses = props.expenses;
@@ -28,22 +29,9 @@ const Expenses = (props) => {
     // console.log(filteredYear);
   };
 
-  const filteredTitems = props.items.filter(
+  const filteredExpenses = props.items.filter(
     (user) => user.date.getFullYear().toString() === filteredYear
   );
-
-  let expensesContent = <p>No expenses found.</p>;
-
-  if (filteredTitems.length > 0) {
-    expensesContent = filteredTitems.map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ));
-  }
 
   return (
     <div>
@@ -54,7 +42,8 @@ const Expenses = (props) => {
         />
         {/* <p>Data for years {filterInfoText} is hidden.</p> */}
         <label>Year: {filteredYear}</label>
-        {expensesContent}
+        {/* {expensesContent} */}
+        <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
   );
