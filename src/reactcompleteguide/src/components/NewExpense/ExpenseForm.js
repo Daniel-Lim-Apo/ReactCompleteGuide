@@ -47,19 +47,7 @@ const ExpenseForm = (props) => {
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
-
-    handleNewExpenseFormClick();
   };
-
-  const [openNewExpenseForm, setOpenNewExpenseForm] = useState(false);
-
-  const handleNewExpenseFormClick = () => {
-    setOpenNewExpenseForm(!openNewExpenseForm);
-  };
-
-  if (!openNewExpenseForm) {
-    return <button onClick={handleNewExpenseFormClick}>Add New Expense</button>;
-  }
 
   return (
     <form onSubmit={submitHandler}>
@@ -102,7 +90,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
-        <button onClick={handleNewExpenseFormClick}>cancel</button>
+        <button type="button" onClick={props.onCancel}>
+          cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

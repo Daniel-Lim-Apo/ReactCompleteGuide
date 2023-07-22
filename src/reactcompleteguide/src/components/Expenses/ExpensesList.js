@@ -21,7 +21,6 @@ const ExpensesList = (props) => {
           />
         )))
       }
-      ;
     </ul>
   );
 };
