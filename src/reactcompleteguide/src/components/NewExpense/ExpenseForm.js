@@ -22,7 +22,10 @@ const ExpenseForm = (props) => {
     if (identifier === "title") {
       setEnteredTitle(value);
     } else if (identifier === "date") {
-      // console.log(value);
+      console.log("Date value:");
+      console.log(value);
+      console.log("Date parsed:");
+      console.log(new Date(Date.parse(value)));
       setEnteredDate(value);
     } else if (identifier === "amount") {
       setEnteredAmount(value);
@@ -41,7 +44,7 @@ const ExpenseForm = (props) => {
       date: new Date(Date.parse(enteredDate)),
     };
 
-    // console.log(expenseData);
+    console.log(expenseData.date);
     props.onSaveExpenseData(expenseData);
 
     setEnteredTitle("");

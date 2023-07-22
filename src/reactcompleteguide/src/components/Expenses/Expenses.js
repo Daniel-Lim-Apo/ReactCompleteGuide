@@ -6,6 +6,7 @@ import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFilter";
 import "./ExpensesFilter.css";
 import ExpensesList from "./ExpensesList";
+import ExpensesChart from "./ExpensesChart";
 
 const Expenses = (props) => {
   const expenses = props.expenses;
@@ -43,6 +44,7 @@ const Expenses = (props) => {
         {/* <p>Data for years {filterInfoText} is hidden.</p> */}
         <label>Year: {filteredYear}</label>
         {/* {expensesContent} */}
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList items={filteredExpenses} />
       </Card>
     </div>
